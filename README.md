@@ -1,6 +1,5 @@
 # 🌾 Agri-Estore 🚀
 
-![Agri-Estore Banner](https://source.unsplash.com/1600x400/?agriculture,technology)  
 
 ## 🌍 Overview
 Welcome to **Agri-Estore** – a next-generation **agriculture e-commerce platform** designed to revolutionize **agri-commerce** by connecting farmers, businesses, and consumers in a seamless online marketplace. Built with **Spring Boot**, it offers a secure, efficient, and scalable solution for buying and selling agricultural products. 🌱
