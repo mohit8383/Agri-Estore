@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<!-- Start Slider  -->
+
+		<!-- <div id="carouselExample" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="img/ecom1.png" class="d-block w-100" alt="..."
+						height="350px">
+				</div>
+				<div class="carousel-item">
+					<img src="img/ecom3.jpg" class="d-block w-100" alt="..."
+						height="350px">
+				</div>
+				<div class="carousel-item">
+					<img src="img/ecom2.jpg" class="d-block w-100" alt="..."
+						height="350px">
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExample" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExample" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div> -->
+		<div class="head">
+		<div class="front">
+		<div class="row">
+			<div class="col-2">
+				<h1>Get Your All Agriculture <br>Product At One Place!</h1>
+				<p>All plants seeds, fertilizers, manure, fruits, vegetables<br> and agricultural machinery also available</p>
+				<a href="/products" class="btn">Explore Now &#10170;</a>
+			</div>
+			<div class="col-2">
+				<img src="img/vegables-removebg-preview.png">
+			</div>
+		</div>
+		</div>
+		</div>
+		
+
+		<!-- End Slider  -->
+
+		<!--< Start Category Module -->
+		<div class="container">
+			<div class="row">
+				<p class="text-center fs-4">Category</p>
+				<div class="col-lg-2 col-md-4 col-6" th:each="c:${category}">
+					<div class="card-container">
+						<a th:href="@{'/products?category='+${c.name}}" class="text-decoration-none">
+							<div class="card category-card">
+								<div class="layers">
+									<div class="layer"></div>
+									<div class="layer"></div>
+									<div class="layer"></div>
+									<div class="layer"></div>
+									<div class="layer"></div>
+									<div class="layer"></div>
+									<div class="layer"></div>
+									<div class="layer"></div>
+									<div class="layer"></div>
+									<div class="layer"></div>
+								</div>
+								<div class="card-body text-center">
+									<img th:src="${c.imageName}" width="65%" height="140px"><br>
+									<span style="color: #ffffff;">[[${c.name}]]</span>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- End Category Module -->
+
+
+		<!-- Start Latest Product Module -->
+
+
+		<div class="container-fluid bg-light p-3">
+			<div class="row justify-content-center g-4"> <!-- Added grid gap -->
+				<p class="text-center fs-4 mb-4">Newly Added Products</p>
+		
+				<div class="col-md-3" th:each="p:${products}">
+					<a th:href="@{'/product/'+${p.id}}" class="card product-card">
+						<div class="overlay"></div>
+						<div class="circle">
+							<img alt="" th:src="${p.image}" class="product-image">
+						</div>
+						<p class="card-title">[[${p.title}]]</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+
+
+		<!-- End Latest Product Module -->
+	</section>
+	<script type="text/javascript" src="../static/js/Front.js"></script>
+</body>
+</html>

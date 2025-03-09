@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Login Page</title>
+	<!-- Add responsive viewport meta tag -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<section>
+		<!-- Improved container spacing -->
+		<div class="container mt-3 mt-md-5 p-3 p-md-5">
+			<div class="row justify-content-center">
+				<!-- Image column (hidden on mobile) -->
+				<div class="col-md-6 d-none d-md-block mb-4 mb-md-0">
+					<img th:src="@{/img/login.png}" alt="Login illustration" class="img-fluid rounded-3"
+						style="max-height: 400px; object-fit: cover;">
+				</div>
+
+				<!-- Form column -->
+				<div class="col-md-6 col-lg-5">
+					<div class="card shadow-lg border-0">
+						<div class="card-header bg-transparent border-0 pt-4">
+							<h2 class="text-center text-primary mb-4">User Login</h2>
+
+							<!-- Improved alert messages -->
+							<div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show">
+								<th:block th:if="${session.SPRING_SECURITY_LAST_EXCEPTION}">
+									<span th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}"></span>
+								</th:block>
+								<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+							</div>
+
+							<div th:if="${param.logout}" class="alert alert-success alert-dismissible fade show">
+								Logout Successful
+								<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+							</div>
+						</div>
+
+						<div class="card-body pt-1">
+							<form th:action="@{/login}" method="post" class="needs-validation" novalidate>
+								<!-- Email input -->
+								<div class="mb-4">
+									<label class="form-label fw-semibold">Email Address</label>
+									<input type="email" name="username" class="form-control form-control-lg"
+										placeholder="name@example.com" required
+										th:classappend="${param.error} ? 'is-invalid'">
+									<div class="invalid-feedback">
+										Please enter a valid email address
+									</div>
+								</div>
+
+								<!-- Password input -->
+								<div class="mb-4">
+									<label class="form-label fw-semibold">Password</label>
+									<input type="password" name="password" class="form-control form-control-lg"
+										placeholder="••••••••" required th:classappend="${param.error} ? 'is-invalid'">
+									<div class="invalid-feedback">
+										Please enter your password
+									</div>
+								</div>
+
+								<!-- Submit button -->
+								<button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
+									Sign In
+								</button>
+							</form>
+						</div>
+
+						<div class="card-footer bg-transparent border-0 text-center pb-4">
+							<div class="d-flex flex-column gap-2">
+								<a th:href="@{/forgot-password}" class="text-decoration-none text-primary">
+									Forgot Password?
+								</a>
+								<span class="text-muted">
+									Don't have an account?
+									<a th:href="@{/register}" class="text-primary fw-semibold text-decoration-none">
+										Create one
+									</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
